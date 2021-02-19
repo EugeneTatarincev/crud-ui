@@ -1,11 +1,11 @@
 import React from 'react'
 
-export const TableElem = ({weight, height, amount}) => {
+export const TableElem = ({age, email, name}) => {
     return (
         <tr>
-            <td> {weight} </td>
-            <td> {height} </td>
-            <td> {amount} </td>
+            <td> {age} </td>
+            <td> {email} </td>
+            <td> {name} </td>
             <td> <button className="delete"> Delete </button> </td>
         </tr>
     )
