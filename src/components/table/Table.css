@@ -1,0 +1,12 @@
+.table-main {
+    margin: auto;
+    border: 2px solid lightblue;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px;
+    margin-top: 200px;
+}
+
+.table-main td {
+    padding: 10px;
+}
