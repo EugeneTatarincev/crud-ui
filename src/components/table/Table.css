@@ -10,3 +10,13 @@
 .table-main td {
     padding: 10px;
 }
+
+.add {
+    width: 60px;
+    height: 40px;
+    cursor: pointer;
+    background: lightblue;
+    outline: none;
+    border: 2px solid lightblue;
+    border-radius: 5px;
+}

@@ -6,6 +6,7 @@ export const TableElem = ({weight, height, amount}) => {
             <td> {weight} </td>
             <td> {height} </td>
             <td> {amount} </td>
+            <td> <button className="delete"> Delete </button> </td>
         </tr>
     )
 }
