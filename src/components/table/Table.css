@@ -19,6 +19,7 @@
     outline: none;
     border: 2px solid lightblue;
     border-radius: 5px;
+    color: white;
 }
 
 
@@ -28,4 +29,32 @@
     border: 2px solid red;
     outline: none;
     border-radius: 5px;
+    padding: 10px;
+    color: white;
+}
+
+.change {
+    background: green;
+    cursor: pointer;
+    border: 2px solid green;
+    outline: none;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+}
+
+.save {
+    background: blue;
+    cursor: pointer;
+    border: 2px solid blue;
+    outline: none;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+}
+
+input {
+    height: 30px;
+    font-size: 20px;
+    outline: none;
 }

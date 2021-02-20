@@ -1,11 +1,8 @@
-import {useState, useCallback} from 'react'
+import {useCallback} from 'react'
 
 export const useHttp = () => {
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(null)
 
-  const request = useCallback(async (url, method = 'GET', body = null, headers = {}) => {
-    setLoading(true)
+ const request = useCallback(async (url, method = 'GET', body = null, headers = {}) => {
     try {
       if (body) {
         body = JSON.stringify(body)
@@ -19,18 +16,13 @@ export const useHttp = () => {
         throw new Error(data.message || 'Что-то пошло не так')
       }
 
-      setLoading(false)
 
       return data
     } catch (e) {
-      setLoading(false)
-      console.log(e.message)
-      setError(e.message)
+      
       throw e
     }
   }, [])
 
-  const clearError = useCallback(() => setError(null), [])
-
-  return { loading, request, error, clearError }
+  return { request }
 }

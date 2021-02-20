@@ -11,7 +11,7 @@ export const Table = () => {
         name: ''
     })
 
-    const {loading, request} = useHttp()
+    const { request } = useHttp()
 
     const fetchData = useCallback(async () => {
         try {
@@ -64,15 +64,18 @@ export const Table = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {data.map(({data, _id}) => <TableElem key={_id} age={data.age} email={data.email} name={data.name} onDelete={handleDelete} id={_id}/>)}
+                    {data.map(({data, _id}) => <TableElem key={_id} age={data.age} email={data.email} name={data.name} onDelete={handleDelete} id={_id} fetchData={fetchData}/>)}
                     <tr>
                         <td> <input type="number" name="age" onChange={handleChange} value={add.age} /> </td>
                         <td> <input type="email" name="email" onChange={handleChange} value={add.email} /> </td>
                         <td> <input type="text" name="name" onChange={handleChange} value={add.name} /> </td>
                     </tr>
-                </tbody>
 
-                <button className="add" onClick={handleClick}> Add </button> 
+                    <tr>
+                       <td> <button className="add" onClick={handleClick}> Add </button> </td> 
+                    </tr>
+            
+                </tbody>
             </table>
     )
 }
