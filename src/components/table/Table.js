@@ -5,6 +5,11 @@ import './Table.css'
 
 export const Table = () => {
     const [data, setData] = useState([])
+    const [add, setAdd] = useState({
+        age:'',
+        email:'',
+        name: ''
+    })
 
     const {loading, request} = useHttp()
 
@@ -12,13 +17,37 @@ export const Table = () => {
         try {
           const fetched = await request('http://178.128.196.163:3000/api/records')
           setData(fetched)
+          console.log(fetched)
         } catch (e) {}
       }, [request])
 
-    function handleClick () {
-        setData({
-            array: [...data.array ,{weight: 40, height: 220, amount: 3}]
+    const handleClick = async () => {
+        try {
+            const fetched = await request('http://178.128.196.163:3000/api/records', 'PUT', {data: add})
+            console.log(fetched)
+            fetchData()
+            setAdd({
+                age:'',
+                email:'',
+                name: ''
+            })
+        } catch (e) {}
+    }
+
+    const handleChange = (e) => {
+        const {value, name} = e.target
+        setAdd({
+            ...add,
+            [name]: value
         })
+    }
+
+    const handleDelete = async (id) => {
+        try {
+            const fetched = await request(`http://178.128.196.163:3000/api/records/${id}`, 'DELETE')
+            console.log(fetched)
+            fetchData()
+        } catch (e) { console.log(e.message)}
     }
 
     useEffect(() => {
@@ -35,7 +64,12 @@ export const Table = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {data.map(({data}) => <TableElem key={data.id} age={data.age} email={data.email} name={data.name}/>)}
+                    {data.map(({data, _id}) => <TableElem key={_id} age={data.age} email={data.email} name={data.name} onDelete={handleDelete} id={_id}/>)}
+                    <tr>
+                        <td> <input type="number" name="age" onChange={handleChange} value={add.age} /> </td>
+                        <td> <input type="email" name="email" onChange={handleChange} value={add.email} /> </td>
+                        <td> <input type="text" name="name" onChange={handleChange} value={add.name} /> </td>
+                    </tr>
                 </tbody>
 
                 <button className="add" onClick={handleClick}> Add </button> 
