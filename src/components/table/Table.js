@@ -21,7 +21,7 @@ export const Table = () => {
         } catch (e) {}
       }, [request])
 
-    const handleClick = async () => {
+    const handleAdd = async () => {
         try {
             const fetched = await request('http://178.128.196.163:3000/api/records', 'PUT', {data: add})
             console.log(fetched)
@@ -72,7 +72,7 @@ export const Table = () => {
                     </tr>
 
                     <tr>
-                       <td> <button className="add" onClick={handleClick}> Add </button> </td> 
+                       <td> <button className="add btn" onClick={handleAdd}> Add </button> </td> 
                     </tr>
             
                 </tbody>

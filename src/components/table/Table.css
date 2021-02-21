@@ -11,46 +11,33 @@
     padding: 10px;
 }
 
-.add {
-    width: 60px;
-    height: 40px;
+.btn {
     cursor: pointer;
-    background: lightblue;
     outline: none;
-    border: 2px solid lightblue;
     border-radius: 5px;
+    padding: 10px;
     color: white;
+}
+
+.add {
+    background: lightblue;
+    border: 2px solid lightblue;
 }
 
 
 .delete {
     background: red;
-    cursor: pointer;
     border: 2px solid red;
-    outline: none;
-    border-radius: 5px;
-    padding: 10px;
-    color: white;
 }
 
 .change {
     background: green;
-    cursor: pointer;
     border: 2px solid green;
-    outline: none;
-    border-radius: 5px;
-    padding: 10px;
-    color: white;
 }
 
 .save {
     background: blue;
-    cursor: pointer;
     border: 2px solid blue;
-    outline: none;
-    border-radius: 5px;
-    padding: 10px;
-    color: white;
 }
 
 input {

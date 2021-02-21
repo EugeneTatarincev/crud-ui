@@ -36,8 +36,8 @@ export const TableElem = ({age, email, name, onDelete, id, fetchData}) => {
             <td> <input type="number" name="age" value={values.age} readOnly={read} onChange={handleChange} /> </td>
             <td> <input type="email" name="email" value={values.email} readOnly={read} onChange={handleChange} /> </td>
             <td> <input type="text" name="name" value={values.name} readOnly={read} onChange={handleChange} /> </td>
-            <td> <button className="delete" onClick={() => {onDelete(id)}}> Delete </button> </td>
-            <td> { read ? <button className="change" onClick={handleClick}> Change </button> : <button className="save" onClick={handleSave} > Save </button> } </td>
+            <td> <button className="delete btn" onClick={() => {onDelete(id)}}> Delete </button> </td>
+            <td> { read ? <button className="change btn" onClick={handleClick}> Change </button> : <button className="save btn" onClick={handleSave} > Save </button> } </td>
         </tr>
     )
 }
